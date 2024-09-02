@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" >
+    {% endblock %}
+
+{% block body %}
+
+    <form class="d-flex" action="/update/{{task.id}}" method="POST" class="content">
+        <input class="form-control me-2" type="text" name="task-update" id="task-update" value="{{ task.task_content }}">
+        <input class="btn btn-outline-success" type="submit" value="Change Task">
+      </form>
+
+{% endblock %}

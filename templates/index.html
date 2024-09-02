@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{%block head%}
+<title>Tasktician</title>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      Tasktician
+    </a>
+  </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+
+  <form class="d-flex" action="/" method="POST">
+    <input class="form-control me-2" type="text" name="task-add" id="task-add" placeholder="Time to add a new task...">
+    <input class="btn btn-outline-success" type="submit" value="Add Task">
+  </form>
+
+  {% if tasks|length < 1 %}
+
+      <h1 class="text-h">There are no task as of the moment..</h1>
+
+  {% else %}
+
+  <table class="table table-striped table-hover">
+    <tbody class="table-group-divider">
+      <th>Task Content</th>
+      <th>Date and Time Assigned</th>
+      <th>Status</th>
+
+
+      {% for task in tasks %}
+      <tr>
+        <td> 
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ task.task_content }}</h5>
+            
+        <td>
+          <h4 class="text-h">{{ task.date_created }}</h4>
+        </td>
+
+        <td>
+              <a href="/delete/{{ task.id }}" class="btn btn-outline-danger">Remove</a>
+              <a href="/update/{{ task.id }}" class="btn btn-outline-primary">Update</a></td>
+        </td>
+            </div>
+          </div>
+      </tr>
+      {% endfor %}
+      
+  </table>
+
+  {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+.content{
+    margin: 5cap;
+}
+
+.text-h{
+    font-family: monospace;
+    text-align: justify;
+}
+h1{
+    margin: 3cap;
+}
+.d-flex{
+    margin: 5cap;
+}
+#task-update{
+    padding: 5cap;
+}
